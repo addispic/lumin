@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "username": "Adisie Fenta",
+    "email": "apic.adisiefenta@gmsil.com",
+    "password": "1234567"
+  },
+  {
+    "id": 2,
+    "username": "Tilahun Yilma",
+    "email": "tilahunyilma@gmsil.com",
+    "password": "1234567"
+  },
+  {
+    "id": 3,
+    "username": "Asegid Teshome",
+    "email": "asgie12@gmsil.com",
+    "password": "1234567"
+  }
+]
