@@ -13,8 +13,14 @@
   },
   {
     "id": 3,
-    "username": "Asegid Teshome",
-    "email": "asgie12@gmsil.com",
+    "username": "Tilahun Yilma",
+    "email": "tilahunyilma@gmsil.com",
     "password": "1234567"
+  },
+  {
+    "id": 4,
+    "username": "A",
+    "email": "asgie12@gmsil.com",
+    "password": "1"
   }
 ]

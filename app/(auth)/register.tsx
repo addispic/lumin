@@ -33,7 +33,7 @@ export default function Register() {
   // effects
   useEffect(() => {
     if (user) {
-      router.replace("/");
+      router.replace("/dashboard");
     }
   }, [user]);
 

@@ -38,7 +38,7 @@ export default function Login() {
   // effects
   useEffect(() => {
     if (user) {
-      router.replace("/");
+      router.replace("/dashboard");
     }
   }, [user]);
 
