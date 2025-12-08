@@ -10,6 +10,7 @@ import { ProductsContextProvider } from "@/contexts/ProductsContext";
 import "../global.css";
 
 export default function RootLayout() {
+  // contexts
   return (
     <AuthContextProvider>
       <ProductsContextProvider>

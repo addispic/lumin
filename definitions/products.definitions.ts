@@ -9,12 +9,10 @@ export interface IProduct {
   sku: string;
   price: number;
   description: string;
-  createdAt: Date;
+  createdAt?: Date;
 }
 
 export interface IProductContext {
   products: IProduct[];
-  isFormOn: boolean;
   setProducts: React.Dispatch<React.SetStateAction<IProduct[]>>;
-  setIsFormOn: React.Dispatch<React.SetStateAction<boolean>>;
 }

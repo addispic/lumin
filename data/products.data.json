@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "user": 1,
+    "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVgspqsQV-ZI9L5TOrYkkGwPDFdrw7MMgS_w&s",
+    "name": "Dell XPS",
+    "quantity": 3,
+    "sku": "DELL-XPS-2025",
+    "price": 970000,
+    "description": "Dell XPS (eXtreme Performance System) is Dell's line of premium consumer laptops and desktops, known for high-end features, sleek designs, powerful performance, and immersive displays, often using Intel Core processors, NVIDIA graphics, and innovative InfinityEdge (minimal bezel) screens for demanding users, though it's being rebranded to 'Dell Premium' in 2025."
+  }
+]

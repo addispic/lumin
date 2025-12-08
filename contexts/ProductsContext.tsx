@@ -3,18 +3,19 @@ import React, { createContext, ReactNode, useContext, useState } from "react";
 // definitions
 import { IProduct, IProductContext } from "@/definitions/products.definitions";
 
+// data
+import productsData from "@/data/products.data.json";
+
 // context
 const ProductsContext = createContext<IProductContext | undefined>(undefined);
 
 // context provider
 export function ProductsContextProvider({ children }: { children: ReactNode }) {
   // states
-  const [products, setProducts] = useState<IProduct[]>([]);
-  const [isFormOn, setIsFormOn] = useState<boolean>(false);
+  const [products, setProducts] = useState<IProduct[]>(productsData);
+
   return (
-    <ProductsContext.Provider
-      value={{ products, isFormOn, setIsFormOn, setProducts }}
-    >
+    <ProductsContext.Provider value={{ products, setProducts }}>
       {children}
     </ProductsContext.Provider>
   );

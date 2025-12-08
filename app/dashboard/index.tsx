@@ -1,39 +1,75 @@
-import { router } from "expo-router";
-import { useEffect } from "react";
-import { View } from "react-native";
+import { Link } from "expo-router";
+import { FlatList, Image, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 // contexts
-import { useAuthContext } from "@/contexts/AuthContext";
 import { useProductsContext } from "@/contexts/ProductsContext";
 
-// components
-import Header from "@/components/Header";
-import NewProduct from "@/components/NewProduct";
+// defs
+import { IProduct } from "@/definitions/products.definitions";
+
 export default function Home() {
-  // contexts
-  // auth
-  const { user } = useAuthContext();
-  // products
-  const { isFormOn } = useProductsContext();
   // hooks
   const insets = useSafeAreaInsets();
-
-  //   effects
-  useEffect(() => {
-    if (!user) {
-      router.replace("/(auth)/login");
-    }
-  }, [user]);
+  // contexts
+  // products
+  const { products } = useProductsContext();
+  const RenderItem = ({ item }: { item: IProduct }) => {
+    return (
+      <View className="flex w-full flex-row py-2 gap-x-3 border-b border-neutral-100">
+        <View className="w-12 h-16 rounded-sm overflow-hidden">
+          <Image
+            source={{ uri: item.uri }}
+            className="w-full h-full object-center object-cover"
+          />
+        </View>
+        <View className="flex-1">
+          <Text className="text-sm font-medium text-neutral-500">
+            {item.name}
+          </Text>
+          <View>
+            <Text className="text-xs">
+              <Text className="text-neutral-400">SKU: </Text>
+              <Text className="font-medium text-green-600">{item.sku}</Text>
+            </Text>
+            <View className="flex flex-row items-center gap-x-5 justify-between">
+              <Text className="text-xs text-neutral-400">
+                Price:{" "}
+                <Text className="font-medium text-neutral-700">
+                  {item.price}
+                </Text>
+                <Text className="text-green-600"> Brr.</Text>
+              </Text>
+              <Link
+                href={{
+                  pathname: "/dashboard/[id]",
+                  params: { id: String(item.id) },
+                }}
+                className="text-xs px-3 py-1 rounded-full bg-neutral-200 text-neutral-400"
+              >
+                View Detail
+              </Link>
+            </View>
+          </View>
+        </View>
+      </View>
+    );
+  };
   return (
     <View
-      className="flex-1 bg-white flex flex-col px-3 relative"
-      style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}
+      className="flex-1 flex px-3 bg-white"
+      style={{ paddingTop: insets.top }}
     >
-      {/* header */}
-      <Header />
-      {/* new product form */}
-      {isFormOn && <NewProduct />}
+      <View>
+        <Text>Header</Text>
+      </View>
+      <View className="flex-1">
+        <FlatList
+          data={products}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => <RenderItem item={item} />}
+        />
+      </View>
     </View>
   );
 }
