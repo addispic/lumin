@@ -1,9 +1,9 @@
 import { Text, View } from "react-native";
 
-export default function TabsHome() {
+export default function Profile() {
   return (
     <View>
-      <Text>Tabs Home Page</Text>
+      <Text>Profile Page</Text>
     </View>
   );
 }
